@@ -1,34 +1,38 @@
-# from itertools import product
-# from tkinter.font import names
+class Employee:
 
+    def __init__(self, name, id, salary):
+        self.name = name
+        self.id = id
+        self.salary = salary
 
-class Library:
+    def get_info(self):
+        # Simply print the employee's information
+        print(f"Name: {self.name}, ID: {self.id}, Salary: {self.salary}")
 
-    def __init__(self,name):
-        self.name= name
-        self.book = []
+    def apply_raise(self, percent):
+        # Apply the raise using the percentage passed as an argument
+        raise_amount = self.salary * (percent / 100)
+        self.salary += raise_amount
+        print(f"Salary after {percent}% raise: {self.salary}")
 
-    def add_book(self,book,name):
-        self.names = name
-        self.books = book
-        print(f"name:{self.name},book:{self.book} added successfully")
-
-    def remove_book(self,book):
-        if book in self.book:
-            self.book.remove(book)
-            print(f"name:{self.name},book:{self.book} removed successfully")
-
-    def display_books (self):
-        if self.book:
-            print(f"name:{self.name},book:{self.book}")
-
-
-book1=Library("charan")
-book2=Library("devi")
-
-book1.add_book("Baru")
-book2.add_book("sriya")
+    def __str__(self):
+        # Return a string representation of the employee object
+        return f"Employee [ID: {self.id}, Name: {self.name}, Salary: {self.salary}]"
 
 
 
-Library.display_books(book2)
+employee1 = Employee("Charan", 1, 4000)
+employee2 = Employee("Sriya", 2, 3500)
+
+
+employee1.get_info()
+employee2.get_info()
+
+employee2.apply_raise(20)
+
+
+print(employee1)
+print(employee2)
+
+
+
